@@ -1,0 +1,42 @@
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='eza -lhgmUX --git --git-repos --classify=always --icons=always --color-scale-mode=gradient --color-scale=all --group-directories-first  --total-size --stdin'
+    #alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='grep -F --color=auto'
+    alias egrep='grep -E --color=auto'
+fi
+
+# ls alias
+alias lt='eza -lhgTamUX --git --git-repos --classify=always --icons=always --color-scale-mode=gradient --color-scale=all --group-directories-first  --total-size --stdin'                                                             # tree listing
+alias l.="eza -lhgAdmUX --git --git-repos --classify=always --icons=always --color-scale-mode=gradient --color-scale=all --group-directories-first  --total-size --stdin .*"                                            #only show dotfiles
+alias al='eza -lhgamUX --git --git-repos --classify=always --icons=always --color-scale-mode=gradient --color-scale=all --group-directories-first  --total-size --stdin'   #recursive all
+alias la='eza -lhgamUX --git --git-repos --classify=always --icons=always --color-scale-mode=gradient --color-scale=all --group-directories-first  --total-size --stdin'   #recursive all
+alias l='eza -h -F=always --group-directories-first --color=always --color-scale-mode=gradient --icons=always'                   #replace ls
+alias dir='eza -lDhgAmUX --git --git-repos --classify=always --icons=always --color-scale-mode=gradient --color-scale=all --group-directories-first  --total-size --stdin' #only show directories
+alias lf='eza -lfhgamUX --git --git-repos --classify=always --icons=always --color-scale-mode=gradient --color-scale=all --group-directories-first  --total-size --stdin'                                         #only show files
+
+# Aliases
+#alias cd..='cd ..'
+#alias cd...='cd ../../'
+#alias cd....='cd ../../../'
+#alias cd.....='cd ../../../../'
+alias rm='rm -v'
+alias rmv='rm -rfv'
+alias v='nvim'
+alias cp='cp -rv'
+alias mv='mv -v'
+alias df='df -h'
+alias bat='bat --style=full'
+alias ip='ip -color'
+alias ipinfo='curl ipinfo.io'
+alias jctlboot='journalctl -p 3 -xb'
+alias jctl='sudo journalctl'
+alias c='clear'
+alias pip='~/.venv/bin/pip'
+alias python='~/.venv/bin/python'
+alias speedtest='speedtest --secure --simple'
